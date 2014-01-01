@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/ghempton/ember-script-rails.git
+  revision: 9a1f09b0c53bf51c37c35490cc76cd7dfe461234
+  specs:
+    ember_script-rails (0.0.3)
+      ember_script (>= 0.0.4)
+      rails
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -10,6 +18,8 @@ GEM
       erubis (~> 2.7.0)
       rack (~> 1.5.2)
       rack-test (~> 0.6.2)
+    active_model_serializers (0.8.1)
+      activemodel (>= 3.0)
     activemodel (4.0.1)
       activesupport (= 4.0.1)
       builder (~> 3.1.0)
@@ -27,6 +37,10 @@ GEM
       tzinfo (~> 0.3.37)
     arel (4.0.1)
     atomic (1.1.14)
+    barber (0.4.2)
+      ember-source
+      execjs
+      handlebars-source
     builder (3.1.4)
     capistrano (3.0.1)
       i18n
@@ -43,9 +57,27 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
-    commonjs (0.2.7)
+    ember-data-source (0.14)
+      ember-source
+    ember-rails (0.14.1)
+      active_model_serializers
+      barber (>= 0.4.1)
+      ember-data-source
+      ember-source
+      execjs (>= 1.2)
+      handlebars-source
+      jquery-rails (>= 1.0.17)
+      railties (>= 3.1)
+    ember-source (1.2.0)
+      handlebars-source (= 1.1.1)
+    ember_script (0.0.5)
+      ember_script-source (>= 0.0.2)
+      execjs
+      tilt
+    ember_script-source (0.0.11)
     erubis (2.7.0)
     execjs (2.0.2)
+    handlebars-source (1.1.1)
     hike (1.2.3)
     i18n (0.6.5)
     jbuilder (1.5.2)
@@ -56,12 +88,6 @@ GEM
       thor (>= 0.14, < 2.0)
     json (1.8.1)
     kgio (2.8.1)
-    less (2.4.0)
-      commonjs (~> 0.2.7)
-    less-rails (2.4.2)
-      actionpack (>= 3.1)
-      less (~> 2.4.0)
-    libv8 (3.16.14.3)
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
@@ -94,7 +120,6 @@ GEM
     rake (10.1.0)
     rdoc (3.12.2)
       json (~> 1.4)
-    ref (1.0.5)
     remotipart (1.2.1)
     sass (3.2.12)
     sass-rails (4.0.1)
@@ -124,9 +149,6 @@ GEM
       term-ansicolor
     term-ansicolor (1.2.2)
       tins (~> 0.8)
-    therubyracer (0.12.0)
-      libv8 (~> 3.16.14.0)
-      ref
     thor (0.18.1)
     thread_safe (0.1.3)
       atomic
@@ -153,19 +175,21 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_model_serializers
   capistrano
   carrierwave
   coffee-rails (~> 4.0.0)
+  ember-rails
+  ember-source (= 1.2.0)
+  ember_script-rails!
   jbuilder (~> 1.2)
   jquery-rails
-  less-rails
   rails (= 4.0.1)
   remotipart
   sass-rails (~> 4.0.0)
   sdoc
   sqlite3
   squeel
-  therubyracer
   twitter-bootstrap-rails
   uglifier (>= 1.3.0)
   unicorn

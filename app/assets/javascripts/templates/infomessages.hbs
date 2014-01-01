@@ -1,0 +1,11 @@
+<table class="table table-striped">
+<thead>
+<tr><th>Priority</th><th>Text</th><th>Image</th><th>Action</th></tr>
+</thead>
+<tbody>
+{{#each item in controller}}
+  {{infomessages-listitem item=item}}
+{{/each}}
+</tbody>
+</table>
+<button class="btn btn-danger" {{action 'create_infomessage'}}>New Message</button>

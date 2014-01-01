@@ -1,23 +1,24 @@
 class InfomessagesController < ApplicationController
   before_filter :load_message
+  respond_to :json, :html, only: :index
+  respond_to :json
 
   def index
     @messages = Infomessage.all
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: {messages: @messages} }
-    end
+    respond_with @messages
   end
 
   def show
+    respond_with @message
   end
 
   def edit
+    respond_with @message
   end
 
   def new
     @message = Infomessage.new
-    render "edit"
+    respond_with @message
   end
 
   def create
@@ -26,9 +27,9 @@ class InfomessagesController < ApplicationController
     saved = @message.save
     respond_to do |format|
       if saved
-        format.html { redirect_to infomessages_path }
+        respond_with @message
       else
-        format.html { render action: "new" }
+        respond_with @message.errors
       end
     end
   end
@@ -38,16 +39,16 @@ class InfomessagesController < ApplicationController
     saved = @message.save
     respond_to do |format|
       if saved
-        format.html { redirect_to infomessages_path }
+        respond_with @message
       else
-        format.html { render action: "edit" }
+        respond_with @message.errors
       end
     end
   end
 
   def destroy
     @message.destroy
-    redirect_to infomessages_path
+    respond_with status: :ok
   end
 
 private
