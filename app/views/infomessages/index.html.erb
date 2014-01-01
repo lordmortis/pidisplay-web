@@ -1,0 +1,16 @@
+<table class="table table-striped" id="info_messages_list">
+<tr><th>Priority</th><th>Text</th><th>Image</th><th>Action</th></tr>
+<% @messages.each do |message| %>
+<tr id="info_message<%= message.id%>">
+  <td><%= message.priority %></td>
+  <td><%= message.text %></td>
+  <td></td>
+  <td>
+    <%= link_to "Show", message, class: "btn show-message", id: message.id %>
+    <%= link_to "Edit", edit_infomessage_path(message), class: "btn edit-message", id: message.id %>
+    <%= link_to "Delete", message, class: "btn delete-message btn-danger", id: message.id, method: :delete, confirm: 'Are you sure?' %>
+</tr>
+<% end %>
+</table>
+
+<%= link_to raw("<span class='btn new_message'>New Message</span>"), new_infomessage_path %>
