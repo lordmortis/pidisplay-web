@@ -1,3 +1,7 @@
+<div class="page-header">
+	<h1>Info Messages</h1>
+</div>
+{{#if controller}}
 <table class="table table-striped">
 <thead>
 <tr><th>Priority</th><th>Text</th><th>Image</th><th>Action</th></tr>
@@ -8,4 +12,8 @@
 {{/each}}
 </tbody>
 </table>
+{{else}}
+No Messages.
+{{/if}}
 <button class="btn btn-danger" {{action 'create_infomessage'}}>New Message</button>
+{{outlet modal}}

@@ -1,6 +1,6 @@
 class Infodisplay.Infomessage extends DS.Model
 	text: DS.attr('string')
-	display_time: DS.attr('number')
+	displayTime: DS.attr('number')
 	priority: DS.attr('number')
-	updated_at: DS.attr('date')
-	created_at: DS.attr('date')
+	updatedAt: DS.attr('date')
+	createdAt: DS.attr('date')

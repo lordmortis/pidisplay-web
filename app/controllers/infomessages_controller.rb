@@ -25,24 +25,20 @@ class InfomessagesController < ApplicationController
     @message = Infomessage.new()
     @message.update_attributes!(edit_params)
     saved = @message.save
-    respond_to do |format|
-      if saved
-        respond_with @message
-      else
-        respond_with @message.errors
-      end
+    if saved
+      respond_with @message
+    else
+      respond_with @message.errors
     end
   end
 
   def update
     @message.update_attributes!(edit_params)
     saved = @message.save
-    respond_to do |format|
-      if saved
-        respond_with @message
-      else
-        respond_with @message.errors
-      end
+    if saved
+      respond_with @message
+    else
+      respond_with @message.errors
     end
   end
 
@@ -57,7 +53,7 @@ private
   end
 
   def edit_params
-    params.require(:infomessage).permit(:text, :image)
+    params.require(:infomessage).permit(:text, :image, :priority, :display_time)
   end
 
 end

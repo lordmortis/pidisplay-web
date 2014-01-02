@@ -1,6 +1,7 @@
 #= require jquery
 #= require jquery_ujs
-#= require twitter/bootstrap
+#= require jquery.ui.sortable
+#= require bootstrap
 #= require handlebars
 #= require ember
 #= require ember-data
